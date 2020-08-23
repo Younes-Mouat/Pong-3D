@@ -25,10 +25,9 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(rgball.velocity);
         if (rgball.position.y < -1f)
         {
-            FindObjectOfType<GameManager>().GameOver();
+            GameManager.Instance.GameOver();
         }
     }
 }

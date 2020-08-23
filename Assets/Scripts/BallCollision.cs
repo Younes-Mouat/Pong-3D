@@ -1,25 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour
+public class BallCollision : MonoBehaviour
 {
     public Rigidbody rgball;
-    public float power;
+    public float force = 700f;
 
     void OnCollisionEnter(Collision collisioninfo){
         if (collisioninfo.collider.tag == "Obstacle")
         {
-            Debug.Log("we hit enemy");
+            //Debug.Log("we hit enemy");
 
             if (rgball.position.z > 0f)
             {
-                rgball.AddForce(0,0,-800);
+                rgball.AddForce(0,0,-force);
             }
             
             if (rgball.position.z < -0f)
             {
-                rgball.AddForce(0,0,800);
+                rgball.AddForce(0,0,force);
             }
 
         }
